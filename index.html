@@ -12,7 +12,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Didact+Gothic&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -29,18 +29,10 @@
                         base: '#E2E2DF',
                         surface: '#F4F4F4',
                         line: '#dfd8cb',
-                        fiery: '#C0392B',
-                        amber: '#E67E22',
-                        coral: '#F1948A',
-                        cream: '#FAF3E0',
-                        earthy: '#6E4B3A',
                     },
                     fontFamily: {
                         sans: ['"Public Sans"', 'sans-serif'],
                         serif: ['"Cormorant Garamond"', 'serif'],
-                        glowScript: ['"Pinyon Script"', 'cursive'],
-                        glowHeadline: ['"Playfair Display"', 'serif'],
-                        glowBody: ['"Didact Gothic"', 'sans-serif'],
                     },
                 },
             },
@@ -71,7 +63,6 @@
         }
         .section-label { letter-spacing: 0.3em; }
         
-        /* Buttons */
         .btn-primary {
             background-color: #84B8A8;
             color: #5A554A;
@@ -118,31 +109,6 @@
             color: #F4F4F4;
         }
         
-        .image-placeholder {
-            border-radius: 1rem;
-            overflow: hidden;
-            position: relative;
-            transition: all 0.6s ease;
-            background: #E8DDD0;
-        }
-        .image-placeholder:hover {
-            transform: scale(1.01);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
-        }
-        
-        .glow-section { background-color: #FAF3E0; }
-        .glow-text { color: #6E4B3A; }
-        .glow-text-fiery { color: #C0392B; }
-        
-        .social-card {
-            background: linear-gradient(135deg, #F1948A 0%, #E67E22 50%, #C0392B 100%);
-            transition: all 0.4s ease;
-        }
-        .social-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 60px rgba(192, 57, 43, 0.15);
-        }
-        
         .value-card { transition: all 0.4s ease; }
         .value-card:hover { transform: translateY(-4px); }
         .contact-card { transition: all 0.3s ease; }
@@ -160,509 +126,9 @@
         }
         .expect-item:last-child { border-bottom: none; }
         
-        /* Questionnaire Styles */
-        .progress-bar {
-            position: fixed;
-            top: 0; left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #6D8EA0, #84B8A8);
-            width: 0%;
-            transition: width 0.3s ease;
-            z-index: 100;
-        }
-        
-        .q-hero {
-            min-height: 100vh;
-            background: #5A554A;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 80px 48px;
-            position: relative;
-            overflow: hidden;
-        }
-        .q-hero::before {
-            content: '';
-            position: absolute;
-            top: -200px; right: -200px;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(132,184,168,0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .q-hero::after {
-            content: '';
-            position: absolute;
-            bottom: -100px; left: -100px;
-            width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(109,142,160,0.05) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .q-hero-inner {
-            max-width: 800px;
-            margin: 0 auto;
-            width: 100%;
-            animation: fadeUp 1s ease forwards;
-            opacity: 0;
-        }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .q-tag {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: #84B8A8;
-            margin-bottom: 48px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .q-tag::before {
-            content: '';
-            display: block;
-            width: 32px;
-            height: 1px;
-            background: #84B8A8;
-        }
-        .q-hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(48px, 8vw, 96px);
-            font-weight: 400;
-            color: #FFFFFF;
-            line-height: 1.0;
-            margin-bottom: 16px;
-        }
-        .q-hero h1 em {
-            font-style: italic;
-            color: #84B8A8;
-        }
-        .q-hero-sub {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(20px, 3vw, 28px);
-            font-weight: 300;
-            color: rgba(255,255,255,0.4);
-            margin-bottom: 48px;
-            font-style: italic;
-        }
-        .q-hero-note {
-            font-size: 14px;
-            font-weight: 300;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.8;
-            max-width: 520px;
-            border-left: 1px solid rgba(132,184,168,0.3);
-            padding-left: 20px;
-            margin-bottom: 56px;
-        }
-        .q-hero-note strong {
-            color: rgba(255,255,255,0.8);
-            font-weight: 400;
-        }
-        .q-scroll-hint {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 11px;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.3);
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        .q-scroll-hint:hover { color: #84B8A8; }
-        .q-scroll-hint .arrow {
-            width: 32px;
-            height: 32px;
-            border: 1px solid rgba(132,184,168,0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: border-color 0.3s;
-        }
-        .q-scroll-hint:hover .arrow { border-color: #84B8A8; }
-        
-        .q-scale-bar {
-            background: #F4F4F4;
-            border-bottom: 1px solid #dfd8cb;
-            padding: 20px 48px;
-            position: sticky;
-            top: 3px;
-            z-index: 50;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-        }
-        .q-scale-label {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: #5A554A;
-            opacity: 0.5;
-            white-space: nowrap;
-        }
-        .q-scale-items {
-            display: flex;
-            gap: 0;
-            flex: 1;
-            max-width: 500px;
-        }
-        .q-scale-item {
-            flex: 1;
-            text-align: center;
-            padding: 6px 4px;
-            font-size: 11px;
-            color: #5A554A;
-            opacity: 0.5;
-            border-left: 1px solid #dfd8cb;
-            line-height: 1.3;
-        }
-        .q-scale-item:first-child { border-left: none; }
-        .q-scale-item strong { display: block; font-size: 14px; color: #6D8EA0; opacity: 1; }
-        
-        .q-section {
-            padding: 80px 48px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .q-section-header {
-            margin-bottom: 56px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid #dfd8cb;
-        }
-        .q-section-num {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: #6D8EA0;
-            margin-bottom: 12px;
-        }
-        .q-section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(36px, 5vw, 56px);
-            font-weight: 400;
-            color: #5A554A;
-            margin-bottom: 12px;
-            line-height: 1.1;
-        }
-        .q-section-desc {
-            font-size: 14px;
-            font-weight: 300;
-            color: #5A554A;
-            opacity: 0.6;
-            font-style: italic;
-            line-height: 1.7;
-        }
-        .q-question {
-            margin-bottom: 48px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        .q-question.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .q-question-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 13px;
-            color: #6D8EA0;
-            font-weight: 400;
-            margin-bottom: 10px;
-            letter-spacing: 0.1em;
-        }
-        .q-question-text {
-            font-size: 15px;
-            font-weight: 300;
-            color: #5A554A;
-            line-height: 1.75;
-            margin-bottom: 20px;
-        }
-        .q-rating {
-            display: flex;
-            gap: 8px;
-        }
-        .q-rating-btn {
-            flex: 1;
-            aspect-ratio: 1;
-            max-width: 52px;
-            border: 1.5px solid #dfd8cb;
-            background: transparent;
-            border-radius: 2px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 18px;
-            color: #5A554A;
-            opacity: 0.5;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .q-rating-btn:hover {
-            border-color: #6D8EA0;
-            color: #6D8EA0;
-            opacity: 1;
-            background: #F4F4F4;
-        }
-        .q-rating-btn.selected {
-            border-color: #84B8A8;
-            background: #84B8A8;
-            color: #FFFFFF;
-            opacity: 1;
-        }
-        .q-section-total {
-            background: #F4F4F4;
-            margin: 0 48px 0;
-            padding: 24px 32px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border: 1px solid #dfd8cb;
-        }
-        .q-total-label {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
-            font-weight: 400;
-            color: #5A554A;
-        }
-        .q-total-score {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 36px;
-            font-weight: 300;
-            color: #6D8EA0;
-        }
-        .q-section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #84B8A8, transparent);
-            opacity: 0.3;
-            margin: 0 48px;
-        }
-        .q-submit-wrap {
-            padding: 60px 48px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .q-submit-btn {
-            background: #5A554A;
-            color: #FFFFFF;
-            border: none;
-            padding: 18px 56px;
-            font-family: 'Public Sans', sans-serif;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background 0.2s;
-            margin-bottom: 16px;
-            display: inline-block;
-            border-radius: 9999px;
-        }
-        .q-submit-btn:hover { background: #6D8EA0; }
-        .q-submit-note {
-            font-size: 12px;
-            color: #5A554A;
-            opacity: 0.4;
-            font-style: italic;
-        }
-        .q-results {
-            padding: 80px 48px;
-            max-width: 800px;
-            margin: 0 auto;
-            display: none;
-        }
-        .q-results.visible { display: block; }
-        .q-results-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(36px, 5vw, 56px);
-            font-weight: 400;
-            color: #5A554A;
-            margin-bottom: 48px;
-        }
-        .q-score-card {
-            background: #F4F4F4;
-            border: 1px solid #dfd8cb;
-            border-left: 3px solid #84B8A8;
-            padding: 24px 28px;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-        }
-        .q-score-card-label {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
-            font-weight: 400;
-            color: #5A554A;
-        }
-        .q-score-card-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
-            font-weight: 300;
-            color: #6D8EA0;
-            white-space: nowrap;
-        }
-        .q-total-card {
-            background: #5A554A;
-            padding: 28px 32px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 48px;
-        }
-        .q-total-card-label {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 24px;
-            color: #FFFFFF;
-        }
-        .q-total-card-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 48px;
-            font-weight: 300;
-            color: #84B8A8;
-        }
-        .q-meaning-box {
-            background: #F4F4F4;
-            border-top: 3px solid #84B8A8;
-            padding: 32px;
-            margin-bottom: 48px;
-            border: 1px solid #dfd8cb;
-        }
-        .q-meaning-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 24px;
-            font-weight: 600;
-            color: #5A554A;
-            margin-bottom: 12px;
-        }
-        .q-meaning-text {
-            font-size: 14px;
-            font-weight: 300;
-            color: #5A554A;
-            opacity: 0.7;
-            line-height: 1.8;
-        }
-        .q-next-steps {
-            border: 1px solid #dfd8cb;
-            padding: 36px;
-            margin-bottom: 48px;
-        }
-        .q-next-steps-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 28px;
-            font-weight: 400;
-            color: #5A554A;
-            margin-bottom: 24px;
-        }
-        .q-step {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #dfd8cb;
-        }
-        .q-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        .q-step-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
-            font-weight: 300;
-            color: #6D8EA0;
-            line-height: 1;
-            flex-shrink: 0;
-            width: 32px;
-        }
-        .q-step-text {
-            font-size: 14px;
-            font-weight: 300;
-            color: #5A554A;
-            opacity: 0.7;
-            line-height: 1.8;
-            padding-top: 6px;
-        }
-        .q-step-text strong {
-            display: block;
-            font-weight: 500;
-            color: #5A554A;
-            margin-bottom: 4px;
-            font-size: 15px;
-            opacity: 1;
-        }
-        .q-copy-section {
-            background: #5A554A;
-            padding: 36px;
-            text-align: center;
-        }
-        .q-copy-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 24px;
-            color: #FFFFFF;
-            margin-bottom: 8px;
-        }
-        .q-copy-subtitle {
-            font-size: 13px;
-            color: rgba(255,255,255,0.4);
-            margin-bottom: 24px;
-        }
-        .q-copy-btn {
-            background: #84B8A8;
-            color: #5A554A;
-            border: none;
-            padding: 14px 36px;
-            font-family: 'Public Sans', sans-serif;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background 0.2s;
-            border-radius: 9999px;
-        }
-        .q-copy-btn:hover { background: #6D8EA0; color: #FFFFFF; }
-        .q-copy-result {
-            margin-top: 16px;
-            font-size: 13px;
-            color: rgba(255,255,255,0.5);
-            font-style: italic;
-            min-height: 20px;
-        }
-        
-        .q-footer {
-            padding: 40px 48px;
-            text-align: center;
-            border-top: 1px solid #dfd8cb;
-            background: #E2E2DF;
-        }
-        .q-footer p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 13px;
-            color: #5A554A;
-            opacity: 0.4;
-            letter-spacing: 0.2em;
-        }
-        .q-footer span { color: #84B8A8; }
-        
         @media (max-width: 768px) {
             .hero-headline { font-size: 3.5rem !important; }
             .section-headline { font-size: 3rem !important; }
-            .q-hero { padding: 60px 24px; }
-            .q-section { padding: 60px 24px; }
-            .q-section-total { margin: 0 24px; flex-direction: column; gap: 8px; text-align: center; }
-            .q-scale-bar { padding: 16px 24px; flex-direction: column; align-items: flex-start; }
-            .q-scale-items { max-width: 100%; }
-            .q-results { padding: 60px 24px; }
-            .q-submit-wrap { padding: 40px 24px; }
-            .q-copy-section { padding: 24px; }
-            .q-next-steps { padding: 24px; }
-            .q-footer { padding: 32px 24px; }
-            .q-rating-btn { max-width: 44px; font-size: 16px; }
         }
         @media (max-width: 480px) {
             .hero-headline { font-size: 2.8rem !important; }
@@ -672,29 +138,27 @@
 </head>
 <body>
 
-    <!-- ========== PAGE 1: HOMEPAGE ========== -->
-    
     <!-- Navigation -->
     <nav class="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-7xl bg-secondary/90 backdrop-blur-md rounded-full px-8 py-4 shadow-sm border border-line nav-container">
         <div class="flex items-center justify-between">
             <div class="flex items-center gap-6">
                 <div class="flex items-center gap-1">
-                    <a href="#home" class="text-2xl font-serif text-surface tracking-tight leading-none">SEREX</a>
+                    <a href="./index.html" class="text-2xl font-serif text-surface tracking-tight leading-none">SEREX</a>
                     <span class="text-xs font-serif text-surface/60 tracking-widest leading-none mt-1">Studio</span>
                 </div>
                 <span class="text-[10px] font-serif text-surface/40 tracking-[0.25em] uppercase border-l border-surface/20 pl-4">Where Serenity Meets Exclusivity</span>
             </div>
             <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-surface/80">
-                <a href="#work" class="link-underline hover:text-surface font-sans text-sm">Work</a>
-                <a href="#ways" class="link-underline hover:text-surface font-sans text-sm">Ways To Work With Me</a>
-                <a href="#meet" class="link-underline hover:text-surface font-sans text-sm">Meet Ruth</a>
-                <a href="#contact" class="nav-btn">Let's Talk</a>
+                <a href="./index.html#work" class="link-underline hover:text-surface font-sans text-sm">Work</a>
+                <a href="./index.html#ways" class="link-underline hover:text-surface font-sans text-sm">Ways To Work With Me</a>
+                <a href="./index.html#meet" class="link-underline hover:text-surface font-sans text-sm">Meet Ruth</a>
+                <a href="./index.html#contact" class="nav-btn">Let's Talk</a>
             </div>
         </div>
     </nav>
 
     <!-- HERO -->
-    <header id="home" class="relative min-h-screen flex items-center pt-32 pb-20 px-[5vw]" style="background-image: url('https://i.imgur.com/4pVn1si.png'); background-size: cover; background-position: center;">
+    <header class="relative min-h-screen flex items-center pt-32 pb-20 px-[5vw]" style="background-image: url('https://i.imgur.com/4pVn1si.png'); background-size: cover; background-position: center;">
         <div class="absolute inset-0 bg-black/10"></div>
         <div class="relative z-10 max-w-7xl mx-auto w-full">
             <div class="max-w-2xl space-y-6">
@@ -709,8 +173,8 @@
                     So I'm your girl if your brand looks right, but doesn't quite feel right.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#work" class="bg-white/20 backdrop-blur-sm text-white px-10 py-4 rounded-full font-bold hover:bg-white/30 transition-all border border-white/30">View My Work</a>
-                    <a href="#contact" class="bg-accent text-ink px-10 py-4 rounded-full font-bold hover:brightness-110 transition-all">Let's Talk</a>
+                    <a href="./index.html#work" class="bg-white/20 backdrop-blur-sm text-white px-10 py-4 rounded-full font-bold hover:bg-white/30 transition-all border border-white/30">View My Work</a>
+                    <a href="./index.html#contact" class="bg-accent text-ink px-10 py-4 rounded-full font-bold hover:brightness-110 transition-all">Let's Talk</a>
                 </div>
             </div>
         </div>
@@ -767,19 +231,19 @@
                     <div class="space-y-4">
                         <span class="text-xs font-bold text-ink/40 uppercase tracking-widest">01 — Make It Exclusively Yours</span>
                         <p class="text-sm text-ink/60">A version shaped entirely around your brand — personalised before you answer a single question.</p>
-                        <a href="#contact" class="inline-block text-secondary font-bold link-underline">Request My Exclusive Questionnaire →</a>
+                        <a href="./index.html#contact" class="btn-primary text-sm px-8 py-3">Request My Exclusive Questionnaire →</a>
                     </div>
                     <div class="space-y-4 border-l border-line pl-8">
                         <span class="text-xs font-bold text-ink/40 uppercase tracking-widest">02 — Work Through It Yourself</span>
                         <p class="text-sm text-ink/60">A self-guided questionnaire you complete at your own pace.</p>
-                        <a href="#questionnaire" class="inline-block text-secondary font-bold link-underline">Get My Questionnaire →</a>
+                        <a href="./questionnaire.html" class="btn-secondary text-sm px-8 py-3">Get My Questionnaire →</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SHE GLOWS -->
+    <!-- SHE GLOWS (Preview) -->
     <section id="work" class="py-32 px-[5vw] bg-base">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col lg:flex-row justify-between items-end gap-12 mb-20">
@@ -788,38 +252,32 @@
                 </div>
                 <div class="lg:max-w-xl space-y-8 font-sans">
                     <p class="text-2xl text-ink/70 leading-relaxed">A complete wellness brand experience built around fire, healing, emotional recognition, and the belief that women deserve brands that speak to them like people — not consumers.</p>
-                    <a href="#sheglows"><span class="btn-primary text-sm px-8 py-3">View She Glows</span></a>
+                    <a href="./sheglows.html"><span class="btn-primary text-sm px-8 py-3">View She Glows</span></a>
                 </div>
             </div>
-            <div class="relative group cursor-pointer overflow-hidden rounded-jumbo aspect-[21/9] shadow-2xl">
-                <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://i.imgur.com/L5SfM34.png" alt="She Glows moodboard" />
+            <div class="relative group cursor-pointer overflow-hidden rounded-2xl shadow-2xl">
+                <img class="w-full h-auto object-contain transition-transform duration-1000 group-hover:scale-105" src="https://i.imgur.com/L5SfM34.png" alt="She Glows moodboard" />
             </div>
         </div>
     </section>
 
-    <!-- CONVERSION AUDIT & FRAMEWORK -->
+    <!-- CONVERSION AUDIT & FRAMEWORK (Previews — Images Removed) -->
     <section class="pb-32 px-[5vw] bg-base">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
-            <article class="group cursor-pointer space-y-8">
-                <div class="overflow-hidden rounded-jumbo aspect-video bg-surface">
-                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://i.imgur.com/Dn0FG8A.jpeg" alt="Conversion Architecture Audit document" />
-                </div>
+            <article class="group cursor-pointer space-y-6">
                 <div class="space-y-4">
                     <h3 class="text-3xl font-serif text-accent font-bold">Conversion Architecture Audit</h3>
                     <p class="text-ink/60 text-lg leading-relaxed font-sans">Why the top 1% of brand designers convert without trying — and the three sections worth auditing.</p>
                     <p class="text-ink/50 text-sm leading-relaxed font-sans">They convert because they signal trust. Headlines that filter. About sections that stop scrollers. Featured sections that tell visitors what to do next.</p>
-                    <a href="#audit" class="btn-secondary text-sm px-8 py-3">Explore the Audit →</a>
+                    <a href="./audit.html" class="btn-secondary text-sm px-8 py-3">Explore the Audit →</a>
                 </div>
             </article>
-            <article class="group cursor-pointer space-y-8">
-                <div class="overflow-hidden rounded-jumbo aspect-video bg-surface">
-                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://i.imgur.com/9DQoZE4.jpeg" alt="60/20/17/3 Awareness Framework diagram" />
-                </div>
+            <article class="group cursor-pointer space-y-6 md:border-l md:border-line md:pl-16">
                 <div class="space-y-4">
                     <h3 class="text-3xl font-serif text-accent font-bold">60/20/17/3 Awareness Framework</h3>
                     <p class="text-ink/60 text-lg leading-relaxed font-sans">I found a marketing framework on YouTube. Then I tried it on myself.</p>
                     <p class="text-ink/50 text-sm leading-relaxed font-sans">I wanted to know if it could explain something I was seeing in my own content — and what would happen if I stopped treating every person in my audience like they needed the same thing.</p>
-                    <a href="#framework" class="btn-secondary text-sm px-8 py-3">View the Field Study →</a>
+                    <a href="./framework.html" class="btn-secondary text-sm px-8 py-3">View the Field Study →</a>
                 </div>
             </article>
         </div>
@@ -849,7 +307,7 @@
                         <p class="mt-2">Positioning · Brand Messaging · Brand Voice · Audience &amp; Differentiation</p>
                     </div>
                     <div class="md:col-span-2 md:text-right">
-                        <a href="#contact" class="text-secondary font-bold font-sans link-underline">Inquire</a>
+                        <a href="./index.html#contact" class="text-secondary font-bold font-sans link-underline">Inquire</a>
                     </div>
                 </div>
                 <div class="py-12 bg-surface grid md:grid-cols-12 gap-8 items-start">
@@ -863,7 +321,7 @@
                         <p class="mt-2">Website Copy · Brand Copy · Product Storytelling · Email Copy</p>
                     </div>
                     <div class="md:col-span-2 md:text-right">
-                        <a href="#contact" class="text-secondary font-bold font-sans link-underline">Inquire</a>
+                        <a href="./index.html#contact" class="text-secondary font-bold font-sans link-underline">Inquire</a>
                     </div>
                 </div>
                 <div class="py-12 bg-surface grid md:grid-cols-12 gap-8 items-start">
@@ -877,7 +335,7 @@
                         <p class="mt-2">Content Strategy · Content Pillars · Hooks &amp; CTAs · Editorial Direction</p>
                     </div>
                     <div class="md:col-span-2 md:text-right">
-                        <a href="#contact" class="text-secondary font-bold font-sans link-underline">Inquire</a>
+                        <a href="./index.html#contact" class="text-secondary font-bold font-sans link-underline">Inquire</a>
                     </div>
                 </div>
                 <div class="py-12 bg-surface grid md:grid-cols-12 gap-8 items-start">
@@ -891,7 +349,7 @@
                         <p class="mt-2">Email Strategy · Welcome Sequences · Nurture Sequences · Campaigns</p>
                     </div>
                     <div class="md:col-span-2 md:text-right">
-                        <a href="#contact" class="text-secondary font-bold font-sans link-underline">Inquire</a>
+                        <a href="./index.html#contact" class="text-secondary font-bold font-sans link-underline">Inquire</a>
                     </div>
                 </div>
                 <div class="py-12 bg-surface grid md:grid-cols-12 gap-8 items-start">
@@ -905,7 +363,7 @@
                         <p class="mt-2">Brand Voice · Website Copy · Conversion · Customer Journey</p>
                     </div>
                     <div class="md:col-span-2 md:text-right">
-                        <a href="#contact" class="text-secondary font-bold font-sans link-underline">Inquire</a>
+                        <a href="./index.html#contact" class="text-secondary font-bold font-sans link-underline">Inquire</a>
                     </div>
                 </div>
             </div>
@@ -913,7 +371,7 @@
             <div class="mt-24 text-center space-y-6">
                 <p class="text-2xl font-serif text-accent font-bold">Not sure where to start?</p>
                 <p class="text-ink/60 max-w-xl mx-auto font-sans">You don't need to arrive with all the answers. Tell me what's not quite translating, and we'll figure out the right next step.</p>
-                <a href="#contact" class="btn-primary">Start A Conversation</a>
+                <a href="./index.html#contact" class="btn-primary">Start A Conversation</a>
             </div>
         </div>
     </section>
@@ -1028,8 +486,8 @@
     <section id="meet" class="py-32 px-[5vw] bg-surface border-t border-line">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-20 items-center">
             <div class="lg:col-span-5">
-                <div class="rounded-jumbo overflow-hidden aspect-[4/5] shadow-2xl relative">
-                    <img class="w-full h-full object-cover" src="https://i.imgur.com/4pVn1si.png" alt="editorial portrait of Ruth Machar" />
+                <div class="rounded-2xl overflow-hidden shadow-2xl relative">
+                    <img class="w-full h-auto object-contain" src="https://i.imgur.com/4pVn1si.png" alt="editorial portrait of Ruth Machar" />
                 </div>
             </div>
             <div class="lg:col-span-7 space-y-10">
@@ -1099,10 +557,10 @@
                 <div class="space-y-4">
                     <p class="text-xs font-bold uppercase tracking-widest text-surface/40">Navigation</p>
                     <ul class="space-y-2 text-sm text-surface/70">
-                        <li><a href="#work" class="link-underline hover:text-surface">Work</a></li>
-                        <li><a href="#ways" class="link-underline hover:text-surface">Ways to Work With Me</a></li>
-                        <li><a href="#meet" class="link-underline hover:text-surface">Meet Ruth</a></li>
-                        <li><a href="#contact" class="link-underline hover:text-surface">Let's Talk</a></li>
+                        <li><a href="./index.html#work" class="link-underline hover:text-surface">Work</a></li>
+                        <li><a href="./index.html#ways" class="link-underline hover:text-surface">Ways to Work With Me</a></li>
+                        <li><a href="./index.html#meet" class="link-underline hover:text-surface">Meet Ruth</a></li>
+                        <li><a href="./index.html#contact" class="link-underline hover:text-surface">Let's Talk</a></li>
                     </ul>
                 </div>
                 <div class="space-y-4">
@@ -1119,1280 +577,6 @@
             </div>
         </div>
     </footer>
-
-
-    <!-- ========== PAGE 2: SHE GLOWS ========== -->
-    
-    <div id="sheglows" class="bg-base">
-        
-        <!-- Navigation (repeated for internal page) -->
-        <nav class="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-7xl bg-secondary/90 backdrop-blur-md rounded-full px-8 py-4 shadow-sm border border-line nav-container">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-6">
-                    <div class="flex items-center gap-1">
-                        <a href="#home" class="text-2xl font-serif text-surface tracking-tight leading-none">SEREX</a>
-                        <span class="text-xs font-serif text-surface/60 tracking-widest leading-none mt-1">Studio</span>
-                    </div>
-                    <span class="text-[10px] font-serif text-surface/40 tracking-[0.25em] uppercase border-l border-surface/20 pl-4">Where Serenity Meets Exclusivity</span>
-                </div>
-                <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-surface/80">
-                    <a href="#work" class="link-underline hover:text-surface font-sans text-sm">Work</a>
-                    <a href="#ways" class="link-underline hover:text-surface font-sans text-sm">Ways To Work With Me</a>
-                    <a href="#meet" class="link-underline hover:text-surface font-sans text-sm">Meet Ruth</a>
-                    <a href="#contact" class="nav-btn">Let's Talk</a>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Back to Portfolio Link -->
-        <div class="pt-32 pb-8 px-[5vw] bg-base">
-            <div class="max-w-7xl mx-auto">
-                <a href="#work" class="text-sm font-sans text-ink/70 hover:text-ink transition-opacity duration-300 inline-flex items-center gap-2">
-                    <i class="fa-solid fa-arrow-left text-xs"></i>
-                    Back to the Portfolio
-                </a>
-            </div>
-        </div>
-
-        <!-- HERO -->
-        <header class="relative min-h-[70vh] flex items-center pt-0 pb-20 px-[5vw] bg-base">
-            <div class="max-w-7xl mx-auto w-full">
-                <div class="grid lg:grid-cols-12 gap-16 items-center">
-                    <div class="lg:col-span-7">
-                        <p class="text-xs font-sans font-bold uppercase tracking-[0.3em] text-ink/30 mb-4 section-label">Case Study</p>
-                        <h1 class="text-7xl lg:text-9xl font-serif text-accent font-bold leading-none mb-8 hero-headline">She Glows</h1>
-                        <p class="text-2xl lg:text-3xl text-ink/70 leading-relaxed max-w-2xl font-serif">A complete wellness brand experience built around fire, healing, emotional recognition, and the belief that women deserve brands that speak to them like people — not consumers.</p>
-                    </div>
-                    <div class="lg:col-span-5">
-                        <div class="bg-surface rounded-2xl p-8 border border-line space-y-6">
-                            <div class="grid grid-cols-2 gap-6">
-                                <div><p class="text-xs font-bold uppercase tracking-widest text-ink/30">Project</p><p class="text-lg font-serif text-ink font-bold">She Glows</p></div>
-                                <div><p class="text-xs font-bold uppercase tracking-widest text-ink/30">Industry</p><p class="text-lg font-serif text-ink font-bold">Wellness</p></div>
-                                <div><p class="text-xs font-bold uppercase tracking-widest text-ink/30">Role</p><p class="text-lg font-serif text-ink font-bold">Brand Designer &amp; Copy Strategist</p></div>
-                                <div><p class="text-xs font-bold uppercase tracking-widest text-ink/30">Skills Used</p><p class="text-sm font-sans text-ink/70 leading-relaxed">Brand Strategy · Brand Identity · Copywriting · Email · Content Strategy · Product Storytelling</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- OPENING STATEMENT -->
-        <section class="py-24 px-[5vw] bg-surface border-t border-line">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-4xl lg:text-5xl font-serif text-accent font-bold mb-8 section-headline">A Brand Built for Women Who Forgot Their Fire</h2>
-                <div class="space-y-6 text-xl text-ink/60 leading-relaxed font-sans">
-                    <p>She Glows wasn't created to sell wellness.</p>
-                    <p>It was created to answer a question.</p>
-                    <p class="text-2xl font-serif text-ink/70 italic">What if a wellness brand spoke to women the way they deserved to be spoken to?</p>
-                    <p>Every decision — from the colors to the copy — was made to help women feel recognized before they ever felt marketed to.</p>
-                    <p class="text-ink/50">This project became an exploration of strategy, emotion, and storytelling working together.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SHE GLOWS PALETTE SECTIONS -->
-        
-        <!-- THE FEELING BEFORE THE BRAND -->
-        <section class="py-24 px-[5vw] glow-section border-t border-amber/20">
-            <div class="max-w-7xl mx-auto">
-                <div class="max-w-3xl mx-auto text-center mb-12">
-                    <h2 class="text-4xl lg:text-5xl font-glowScript glow-text-fiery mb-6 section-headline">The Feeling Before the Brand</h2>
-                    <p class="text-lg font-glowBody glow-text leading-relaxed">Before a single letterform was drawn, I wanted to understand how She Glows should feel.</p>
-                    <p class="text-lg font-glowBody glow-text leading-relaxed mt-4">Warm light. Sun-drenched pigment. Softness with fire underneath.</p>
-                    <p class="text-lg font-glowBody glow-text leading-relaxed mt-4">This became the emotional starting point for everything that followed.</p>
-                </div>
-                <div class="image-placeholder rounded-2xl shadow-lg">
-                    <div class="aspect-[21/9] flex items-center justify-center" style="background: linear-gradient(135deg, #E8DDD0 0%, #FAF3E0 50%, #E8DDD0 100%);">
-                        <img class="w-full h-full object-cover" src="https://i.imgur.com/csyMQ35.png" alt="She Glows moodboard" />
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- THE IDENTITY -->
-        <section class="py-24 px-[5vw] glow-section border-t border-amber/20">
-            <div class="max-w-7xl mx-auto">
-                <div class="max-w-3xl mx-auto text-center mb-12">
-                    <h2 class="text-4xl lg:text-5xl font-glowScript glow-text-fiery mb-6 section-headline">The Identity</h2>
-                    <p class="text-lg font-glowBody glow-text leading-relaxed">The visual identity needed to hold two things at once: fire and softness.</p>
-                    <p class="text-lg font-glowBody glow-text leading-relaxed mt-4">I wanted the brand to feel warm and alive without becoming loud, and feminine without relying on the usual wellness clichés.</p>
-                    <p class="text-lg font-glowBody glow-text leading-relaxed mt-4 italic">I didn't choose the palette to look beautiful. I chose it to feel true.</p>
-                </div>
-                <div class="image-placeholder rounded-2xl shadow-lg">
-                    <div class="aspect-[21/9] flex items-center justify-center" style="background: linear-gradient(135deg, #FAF3E0 0%, #E8DDD0 100%);">
-                        <img class="w-full h-full object-cover" src="https://i.imgur.com/YQxrA7P.png" alt="She Glows brand identity palette and typography" />
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- THE WORDS -->
-        <section class="py-24 px-[5vw] glow-section border-t border-amber/20">
-            <div class="max-w-7xl mx-auto">
-                <div class="max-w-3xl mx-auto text-center mb-12">
-                    <h2 class="text-4xl lg:text-5xl font-glowScript glow-text-fiery mb-6 section-headline">The Words</h2>
-                    <p class="text-lg font-glowBody glow-text leading-relaxed">The visual identity could create the feeling, but the words had to carry it.</p>
-                    <p class="text-lg font-glowBody glow-text leading-relaxed mt-4">I wanted She Glows to speak to women like people — not an audience segment.</p>
-                    <p class="text-lg font-glowBody glow-text leading-relaxed mt-4">The voice needed to feel encouraging without becoming cliché, powerful without becoming loud, and personal without trying too hard.</p>
-                    <p class="text-lg font-glowBody glow-text leading-relaxed mt-4 italic">This is where your copywriting becomes proof of your philosophy, rather than just another deliverable.</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="image-placeholder rounded-2xl shadow-lg">
-                        <div class="aspect-[16/9] flex items-center justify-center" style="background: linear-gradient(135deg, #FAF3E0 0%, #E8DDD0 100%);">
-                            <img class="w-full h-full object-cover" src="https://i.imgur.com/s2fYiGz.png" alt="She Glows messaging and copy examples" />
-                        </div>
-                    </div>
-                    <div class="image-placeholder rounded-2xl shadow-lg">
-                        <div class="aspect-[16/9] flex items-center justify-center" style="background: linear-gradient(135deg, #FAF3E0 0%, #E8DDD0 100%);">
-                            <img class="w-full h-full object-cover" src="https://i.imgur.com/JfocdSy.png" alt="She Glows brand voice examples" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- THE EXPERIENCE -->
-        <section class="py-24 px-[5vw] glow-section border-t border-amber/20">
-            <div class="max-w-7xl mx-auto">
-                <div class="max-w-3xl mx-auto text-center mb-12">
-                    <h2 class="text-4xl lg:text-5xl font-glowScript glow-text-fiery mb-6 section-headline">The Experience</h2>
-                    <p class="text-lg font-glowBody glow-text leading-relaxed">A brand shouldn't become a different brand every time someone encounters it.</p>
-                    <p class="text-lg font-glowBody glow-text leading-relaxed mt-4">So I carried the same voice and emotional language into the places where She Glows would actually meet her audience.</p>
-                    <p class="text-lg font-glowBody glow-text leading-relaxed mt-4">Email. Content. Social.</p>
-                    <p class="text-lg font-glowBody glow-text leading-relaxed mt-4 italic">Different touchpoints. Same woman. Same feeling.</p>
-                </div>
-
-                <!-- Email Grid -->
-                <div class="grid md:grid-cols-3 gap-6 mb-12">
-                    <div class="image-placeholder rounded-2xl shadow-lg">
-                        <div class="aspect-[3/4] flex items-center justify-center" style="background: linear-gradient(180deg, #FAF3E0 0%, #E8DDD0 100%);">
-                            <img class="w-full h-full object-cover" src="https://i.imgur.com/rfXRr2Y.png" alt="She Glows welcome email design" />
-                        </div>
-                    </div>
-                    <div class="image-placeholder rounded-2xl shadow-lg">
-                        <div class="aspect-[3/4] flex items-center justify-center" style="background: linear-gradient(180deg, #FAF3E0 0%, #E8DDD0 100%);">
-                            <img class="w-full h-full object-cover" src="https://i.imgur.com/4KON3Vi.png" alt="She Glows nurture email design" />
-                        </div>
-                    </div>
-                    <div class="image-placeholder rounded-2xl shadow-lg">
-                        <div class="aspect-[3/4] flex items-center justify-center" style="background: linear-gradient(180deg, #FAF3E0 0%, #E8DDD0 100%);">
-                            <img class="w-full h-full object-cover" src="https://i.imgur.com/Ke0eXas.png" alt="She Glows connect email design" />
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Social Grid with Gradient Cards -->
-                <div class="grid md:grid-cols-2 gap-8 mb-12">
-                    <div class="social-card rounded-2xl p-8 shadow-xl">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-                                <i class="fa-brands fa-instagram text-2xl text-white"></i>
-                            </div>
-                            <div>
-                                <p class="font-bold text-white font-glowBody">@sheglows</p>
-                                <p class="text-xs text-white/60 font-glowBody">18.4k followers · 412 following</p>
-                            </div>
-                        </div>
-                        <div class="space-y-4">
-                            <p class="text-white/90 font-glowHeadline text-lg italic">"Your kingdom. Your story. Your glow. 👑"</p>
-                            <p class="text-white/70 font-glowBody text-sm">Empowering women to rise — softly, wildly, wholly.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="text-xs bg-white/10 text-white/80 px-3 py-1 rounded-full font-glowBody">🎙 Podcast coming soon</span>
-                            </div>
-                            <button class="border border-white/40 text-white px-6 py-2 rounded-full text-sm font-glowBody hover:bg-white/10 transition-all">Follow</button>
-                        </div>
-                    </div>
-                    <div class="social-card rounded-2xl p-8 shadow-xl">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-                                <i class="fa-brands fa-tiktok text-2xl text-white"></i>
-                            </div>
-                            <div>
-                                <p class="font-bold text-white font-glowBody">@sheglows</p>
-                                <p class="text-xs text-white/60 font-glowBody">24.7k followers · 318k likes</p>
-                            </div>
-                        </div>
-                        <div class="space-y-4">
-                            <p class="text-white/90 font-glowHeadline text-lg italic">"Where women return to their fire."</p>
-                            <p class="text-white/70 font-glowBody text-sm">📍 Home of self-love, healing &amp; truth.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="text-xs bg-white/10 text-white/80 px-3 py-1 rounded-full font-glowBody">🎙 Podcast coming soon</span>
-                            </div>
-                            <div class="flex gap-4 text-sm text-white/40 font-glowBody">
-                                <span>morning</span>
-                                <span>evening</span>
-                                <span>ritual</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Content Horizontal -->
-                <div class="image-placeholder rounded-2xl shadow-lg">
-                    <div class="aspect-[21/9] flex items-center justify-center" style="background: linear-gradient(135deg, #FAF3E0 0%, #E8DDD0 100%);">
-                        <img class="w-full h-full object-cover" src="https://i.imgur.com/I6HhmRy.png" alt="She Glows content calendar - two weeks of intention" />
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEREX PALETTE SECTIONS -->
-        
-        <!-- BACK IN THE STUDIO -->
-        <section class="py-16 px-[5vw] bg-surface border-t border-line">
-            <div class="max-w-7xl mx-auto text-center">
-                <p class="text-xs font-sans font-bold uppercase tracking-[0.3em] text-ink/30">Back in the Studio</p>
-            </div>
-        </section>
-
-        <!-- FROM THE STUDIO -->
-        <section class="py-24 px-[5vw] bg-base border-t border-line">
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-surface rounded-3xl p-12 border border-line">
-                    <h2 class="text-3xl lg:text-4xl font-serif text-accent font-bold mb-8 section-headline">From the Studio</h2>
-                    <div class="space-y-6 text-xl text-ink/60 leading-relaxed font-sans">
-                        <p>Every color mirrors something the She Glows woman already carries.</p>
-                        <p><span class="text-fiery font-bold">Fiery Red</span> is the fire she survived.</p>
-                        <p><span class="text-amber font-bold">Amber</span> is the light she followed.</p>
-                        <p><span class="text-coral font-bold">Coral</span> protects her vulnerability.</p>
-                        <p><span class="text-earth font-bold">Cream</span> gives her room to breathe.</p>
-                        <p><span class="text-earth font-bold">Brown</span> reminds her where she stands.</p>
-                        <p class="text-ink/50 italic mt-8">I didn't choose the palette to look beautiful. I chose it to feel true.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="py-24 px-[5vw] bg-surface border-t border-line">
-            <div class="max-w-7xl mx-auto text-center">
-                <h2 class="text-4xl lg:text-5xl font-serif text-accent font-bold mb-6">Ready to Build Your Brand?</h2>
-                <p class="text-lg text-ink/60 max-w-2xl mx-auto font-sans mb-10">Let's create something that feels as true as it looks.</p>
-                <a href="#contact" class="btn-primary">Start A Conversation</a>
-            </div>
-        </section>
-
-        <!-- FOOTER (repeated) -->
-        <footer class="py-20 px-[5vw] border-t border-line bg-ink">
-            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-12 font-sans">
-                <div class="space-y-4">
-                    <p class="text-2xl font-serif tracking-tight text-surface">SEREX <span class="text-sm font-serif">&copy; Studio</span></p>
-                    <p class="text-sm text-surface/50">Wellness Brand Strategy · Brand Messaging · Copywriting · Content Strategy · Email Marketing</p>
-                </div>
-                <div class="flex flex-wrap gap-12">
-                    <div class="space-y-4">
-                        <p class="text-xs font-bold uppercase tracking-widest text-surface/40">Navigation</p>
-                        <ul class="space-y-2 text-sm text-surface/70">
-                            <li><a href="#work" class="link-underline hover:text-surface">Work</a></li>
-                            <li><a href="#ways" class="link-underline hover:text-surface">Ways to Work With Me</a></li>
-                            <li><a href="#meet" class="link-underline hover:text-surface">Meet Ruth</a></li>
-                            <li><a href="#contact" class="link-underline hover:text-surface">Let's Talk</a></li>
-                        </ul>
-                    </div>
-                    <div class="space-y-4">
-                        <p class="text-xs font-bold uppercase tracking-widest text-surface/40">Connect</p>
-                        <ul class="space-y-2 text-sm text-surface/70">
-                            <li><a href="https://linkedin.com/in/ruthmachar" target="_blank" class="link-underline hover:text-surface">LinkedIn</a></li>
-                            <li><a href="https://wa.me/254118218091" target="_blank" class="link-underline hover:text-surface">WhatsApp</a></li>
-                            <li><a href="mailto:serexbranding@gmail.com" class="link-underline hover:text-surface">Email</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="text-right">
-                    <p class="text-xs text-surface/40">© 2026 SEREX. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-
-    <!-- ========== PAGE 3: 60/20/17/3 AWARENESS FRAMEWORK ========== -->
-    
-    <div id="framework" class="bg-base">
-        
-        <!-- Navigation (repeated) -->
-        <nav class="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-7xl bg-secondary/90 backdrop-blur-md rounded-full px-8 py-4 shadow-sm border border-line nav-container">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-6">
-                    <div class="flex items-center gap-1">
-                        <a href="#home" class="text-2xl font-serif text-surface tracking-tight leading-none">SEREX</a>
-                        <span class="text-xs font-serif text-surface/60 tracking-widest leading-none mt-1">Studio</span>
-                    </div>
-                    <span class="text-[10px] font-serif text-surface/40 tracking-[0.25em] uppercase border-l border-surface/20 pl-4">Where Serenity Meets Exclusivity</span>
-                </div>
-                <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-surface/80">
-                    <a href="#work" class="link-underline hover:text-surface font-sans text-sm">Work</a>
-                    <a href="#ways" class="link-underline hover:text-surface font-sans text-sm">Ways To Work With Me</a>
-                    <a href="#meet" class="link-underline hover:text-surface font-sans text-sm">Meet Ruth</a>
-                    <a href="#contact" class="nav-btn">Let's Talk</a>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Back to Portfolio Link -->
-        <div class="pt-32 pb-8 px-[5vw] bg-base">
-            <div class="max-w-7xl mx-auto">
-                <a href="#work" class="text-sm font-sans text-ink/70 hover:text-ink transition-opacity duration-300 inline-flex items-center gap-2">
-                    <i class="fa-solid fa-arrow-left text-xs"></i>
-                    Back to the Portfolio
-                </a>
-            </div>
-        </div>
-
-        <!-- HERO -->
-        <header class="relative min-h-[60vh] flex items-center pt-0 pb-20 px-[5vw] bg-base">
-            <div class="max-w-7xl mx-auto w-full">
-                <div class="max-w-4xl">
-                    <p class="text-xs font-sans font-bold uppercase tracking-[0.3em] text-ink/30 mb-6 section-label">Field Study</p>
-                    <h1 class="text-5xl lg:text-7xl font-serif text-accent font-bold leading-tight mb-8">The 60/20/17/3<br>Awareness Framework</h1>
-                    <p class="text-2xl lg:text-3xl text-ink/70 leading-relaxed max-w-2xl font-serif italic">I found a marketing framework on YouTube. Then I tried it on myself.</p>
-                    <p class="text-sm text-ink/40 font-sans mt-8 tracking-widest uppercase">By Ruth Machar</p>
-                </div>
-            </div>
-        </header>
-
-        <!-- SECTION 01 — THE DISCOVERY -->
-        <section class="py-24 px-[5vw] bg-surface border-t border-line">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid lg:grid-cols-12 gap-16">
-                    <div class="lg:col-span-4">
-                        <span class="text-xs font-sans font-bold uppercase tracking-[0.3em] text-ink/30">01 Field Study</span>
-                        <h2 class="text-4xl lg:text-5xl font-serif text-accent font-bold mt-4">The Discovery</h2>
-                    </div>
-                    <div class="lg:col-span-8 space-y-8">
-                        <p class="text-xl text-ink/70 leading-relaxed font-sans">I wasn't looking for a new content strategy.</p>
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans">I came across the 60/20/17/3 awareness framework almost randomly and became curious about whether it could explain something I was seeing in my own content.</p>
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans">The idea was simple: people don't all encounter a brand from the same place. Some don't know they have a problem. Some know something is wrong but don't know what to do about it. Others are comparing solutions, while a small percentage are already close to taking action.</p>
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans italic">What does someone need from me at the stage they're actually in?</p>
-                        <p class="text-sm text-ink/40 font-sans leading-relaxed">The framework is based on Eugene Schwartz's awareness model, which segments prospects by how aware they are of their problem and the available solution.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- AWARENESS TABLE -->
-        <section class="py-16 px-[5vw] bg-surface">
-            <div class="max-w-7xl mx-auto">
-                <div class="border-t border-line pt-16">
-                    <table class="framework-table" style="width:100%; border-collapse: collapse; font-family: 'Public Sans', sans-serif;">
-                        <thead>
-                            <tr>
-                                <th style="text-align:left; padding:1rem 1.5rem; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#5A554A; border-bottom:2px solid #dfd8cb; font-weight:600;">Level</th>
-                                <th style="text-align:left; padding:1rem 1.5rem; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#5A554A; border-bottom:2px solid #dfd8cb; font-weight:600;">Awareness State</th>
-                                <th style="text-align:left; padding:1rem 1.5rem; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#5A554A; border-bottom:2px solid #dfd8cb; font-weight:600;">Their Question</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6; font-weight:bold; color:#84B8A8;">60%</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">Unaware of the problem</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">"What's wrong?"</td></tr>
-                            <tr><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6; font-weight:bold; color:#84B8A8;">20%</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">Aware of the problem, not of solution</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">"Why does this keep happening?"</td></tr>
-                            <tr><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6; font-weight:bold; color:#84B8A8;">17%</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">Aware of problem and solution, evaluating options</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">"Which one actually works?"</td></tr>
-                            <tr><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6; font-weight:bold; color:#84B8A8;">3%</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">Ready to buy, needs final reassurance</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">"Why you over someone else?"</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 02 — THE EXPERIMENT -->
-        <section class="py-24 px-[5vw] bg-base border-t border-line">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid lg:grid-cols-12 gap-16">
-                    <div class="lg:col-span-4">
-                        <span class="text-xs font-sans font-bold uppercase tracking-[0.3em] text-ink/30">02 Field Study</span>
-                        <h2 class="text-4xl lg:text-5xl font-serif text-accent font-bold mt-4">The Experiment</h2>
-                    </div>
-                    <div class="lg:col-span-8 space-y-8">
-                        <p class="text-xl text-ink/70 leading-relaxed font-sans">I stopped treating every piece of content like it had the same job.</p>
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans">I mapped the four awareness stages against the kind of content, hook, emotion and CTA I wanted to use.</p>
-                        <div class="bg-surface rounded-2xl p-8 border border-line">
-                            <h3 class="text-2xl font-serif text-accent font-bold mb-4">The Hook Strategy</h3>
-                            <p class="text-ink/60 leading-relaxed font-sans">The hook had to meet the person before the pitch did. For the unaware audience, I used stories and characters that could make people recognise themselves first. For the problem aware audience, I moved closer to the frustration they were already feeling and gave it language. For the solution aware audience, I used frameworks and examples to show how I approached the problem. For people already aware of me, I kept the message direct.</p>
-                            <p class="text-ink/50 font-sans italic mt-4">Different awareness. Different entry point.</p>
-                        </div>
-                        <div class="bg-surface rounded-2xl p-8 border border-line">
-                            <h3 class="text-2xl font-serif text-accent font-bold mb-4">The CTA Strategy</h3>
-                            <p class="text-ink/60 leading-relaxed font-sans">The next step had to make sense too. I didn't want to put the same CTA at the end of every post. The CTA was supposed to move someone forward, not simply generate engagement. I used a lower friction invitation earlier in the journey, then moved toward deeper evaluation and, for product aware people, a direct path into conversation.</p>
-                            <p class="text-ink/50 font-sans italic mt-4">The content created the awareness. The CTA created the next step.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 03 — THE RESULTS -->
-        <section class="py-24 px-[5vw] bg-surface border-t border-line">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid lg:grid-cols-12 gap-16">
-                    <div class="lg:col-span-4">
-                        <span class="text-xs font-sans font-bold uppercase tracking-[0.3em] text-ink/30">03 Field Study</span>
-                        <h2 class="text-4xl lg:text-5xl font-serif text-accent font-bold mt-4">The Results</h2>
-                    </div>
-                    <div class="lg:col-span-8 space-y-8">
-                        <p class="text-xl text-ink/70 leading-relaxed font-sans">Then I started watching what changed.</p>
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans">The experiment gave me movement across visibility, engagement, audience growth and conversations.</p>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="stat-card bg-base rounded-2xl p-8 border border-line text-center" style="transition: all 0.4s ease;">
-                                <span class="text-5xl font-serif text-accent font-bold block">5+</span>
-                                <p class="text-sm text-ink/60 font-sans mt-2">Discovery calls booked through cold outreach</p>
-                                <p class="text-xs text-ink/40 font-sans mt-1">a direct line from awareness matched content to real conversations</p>
-                            </div>
-                            <div class="stat-card bg-base rounded-2xl p-8 border border-line text-center" style="transition: all 0.4s ease;">
-                                <span class="text-sm text-ink/40 font-sans uppercase tracking-widest block mb-2">Results Observed</span>
-                                <p class="text-lg text-ink/70 font-sans">Over less than two months</p>
-                            </div>
-                        </div>
-                        <div class="bg-accent/10 rounded-2xl p-8 border border-accent/20">
-                            <h3 class="text-xl font-serif text-accent font-bold mb-4">Here's What I've Noticed</h3>
-                            <p class="text-ink/60 leading-relaxed font-sans">Growth like this rarely comes from one lucky post. It comes from every piece of content having a job to do, matched to the person seeing it. That's a system, not a stroke of luck, and systems can be audited, refined, and repeated.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 04 — THE AUDIT -->
-        <section class="py-24 px-[5vw] bg-base border-t border-line">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid lg:grid-cols-12 gap-16">
-                    <div class="lg:col-span-4">
-                        <span class="text-xs font-sans font-bold uppercase tracking-[0.3em] text-ink/30">04 Field Study</span>
-                        <h2 class="text-4xl lg:text-5xl font-serif text-accent font-bold mt-4">The Audit</h2>
-                    </div>
-                    <div class="lg:col-span-8 space-y-8">
-                        <p class="text-xl text-ink/70 leading-relaxed font-sans">The framework worked. My definition of the audience didn't.</p>
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans">I had applied the 60/20/17/3 model to everyone I could reach on LinkedIn instead of defining the 100% as my actual target market.</p>
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans">That meant some of my content was doing exactly what I had designed it to do, attracting the unaware. The problem was that some of those people were never going to be my clients.</p>
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans font-bold">The framework wasn't broken. I had aimed it at the wrong 100%.</p>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="bg-surface rounded-2xl p-8 border border-line">
-                                <h4 class="text-sm font-bold uppercase tracking-widest text-ink/40 mb-4">My Old Approach</h4>
-                                <ul class="space-y-3 text-ink/60 font-sans">
-                                    <li><span class="font-bold text-accent">60%</span> — storytelling</li>
-                                    <li><span class="font-bold text-accent">20%</span> — permission</li>
-                                    <li><span class="font-bold text-accent">17%</span> — frameworks</li>
-                                    <li><span class="font-bold text-accent">3%</span> — actionable steps</li>
-                                </ul>
-                            </div>
-                            <div class="bg-surface rounded-2xl p-8 border border-line border-accent/30">
-                                <h4 class="text-sm font-bold uppercase tracking-widest text-accent mb-4">The Correction</h4>
-                                <ul class="space-y-3 text-ink/60 font-sans">
-                                    <li><span class="font-bold text-accent">0%</span> — deliberately targeting the 60%</li>
-                                    <li><span class="font-bold text-accent">40%</span> — naming the invisible problem</li>
-                                    <li><span class="font-bold text-accent">50%</span> — case studies and POV</li>
-                                    <li><span class="font-bold text-accent">10%</span> — direct offer and scarcity</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="bg-surface rounded-2xl p-8 border border-line">
-                            <h3 class="text-2xl font-serif text-accent font-bold mb-4">What I Took From It</h3>
-                            <p class="text-ink/60 leading-relaxed font-sans">I didn't discover a magic content formula. I discovered that a framework is only as useful as the audience you apply it to. The real strategic question isn't "How do I move everyone through the funnel?" It's "Who actually belongs in my funnel?"</p>
-                            <p class="text-ink/50 font-sans italic mt-4">The patterns are useful. The application is personal.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="py-24 px-[5vw] bg-surface border-t border-line">
-            <div class="max-w-7xl mx-auto text-center">
-                <h2 class="text-4xl lg:text-5xl font-serif text-accent font-bold mb-6">Ready to Apply This to Your Brand?</h2>
-                <p class="text-lg text-ink/60 max-w-2xl mx-auto font-sans mb-10">Let's audit your content strategy and find where your messaging is getting lost.</p>
-                <a href="#contact" class="btn-primary">Start A Conversation</a>
-            </div>
-        </section>
-
-        <!-- FOOTER (repeated) -->
-        <footer class="py-20 px-[5vw] border-t border-line bg-ink">
-            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-12 font-sans">
-                <div class="space-y-4">
-                    <p class="text-2xl font-serif tracking-tight text-surface">SEREX <span class="text-sm font-serif">&copy; Studio</span></p>
-                    <p class="text-sm text-surface/50">Wellness Brand Strategy · Brand Messaging · Copywriting · Content Strategy · Email Marketing</p>
-                </div>
-                <div class="flex flex-wrap gap-12">
-                    <div class="space-y-4">
-                        <p class="text-xs font-bold uppercase tracking-widest text-surface/40">Navigation</p>
-                        <ul class="space-y-2 text-sm text-surface/70">
-                            <li><a href="#work" class="link-underline hover:text-surface">Work</a></li>
-                            <li><a href="#ways" class="link-underline hover:text-surface">Ways to Work With Me</a></li>
-                            <li><a href="#meet" class="link-underline hover:text-surface">Meet Ruth</a></li>
-                            <li><a href="#contact" class="link-underline hover:text-surface">Let's Talk</a></li>
-                        </ul>
-                    </div>
-                    <div class="space-y-4">
-                        <p class="text-xs font-bold uppercase tracking-widest text-surface/40">Connect</p>
-                        <ul class="space-y-2 text-sm text-surface/70">
-                            <li><a href="https://linkedin.com/in/ruthmachar" target="_blank" class="link-underline hover:text-surface">LinkedIn</a></li>
-                            <li><a href="https://wa.me/254118218091" target="_blank" class="link-underline hover:text-surface">WhatsApp</a></li>
-                            <li><a href="mailto:serexbranding@gmail.com" class="link-underline hover:text-surface">Email</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="text-right">
-                    <p class="text-xs text-surface/40">© 2026 SEREX. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-
-    <!-- ========== PAGE 4: CONVERSION ARCHITECTURE AUDIT ========== -->
-    
-    <div id="audit" class="bg-base">
-        
-        <!-- Navigation (repeated) -->
-        <nav class="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-7xl bg-secondary/90 backdrop-blur-md rounded-full px-8 py-4 shadow-sm border border-line nav-container">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-6">
-                    <div class="flex items-center gap-1">
-                        <a href="#home" class="text-2xl font-serif text-surface tracking-tight leading-none">SEREX</a>
-                        <span class="text-xs font-serif text-surface/60 tracking-widest leading-none mt-1">Studio</span>
-                    </div>
-                    <span class="text-[10px] font-serif text-surface/40 tracking-[0.25em] uppercase border-l border-surface/20 pl-4">Where Serenity Meets Exclusivity</span>
-                </div>
-                <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-surface/80">
-                    <a href="#work" class="link-underline hover:text-surface font-sans text-sm">Work</a>
-                    <a href="#ways" class="link-underline hover:text-surface font-sans text-sm">Ways To Work With Me</a>
-                    <a href="#meet" class="link-underline hover:text-surface font-sans text-sm">Meet Ruth</a>
-                    <a href="#contact" class="nav-btn">Let's Talk</a>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Back to Portfolio Link -->
-        <div class="pt-32 pb-8 px-[5vw] bg-base">
-            <div class="max-w-7xl mx-auto">
-                <a href="#work" class="text-sm font-sans text-ink/70 hover:text-ink transition-opacity duration-300 inline-flex items-center gap-2">
-                    <i class="fa-solid fa-arrow-left text-xs"></i>
-                    Back to the Portfolio
-                </a>
-            </div>
-        </div>
-
-        <!-- HERO -->
-        <header class="relative min-h-[60vh] flex items-center pt-0 pb-20 px-[5vw] bg-base">
-            <div class="max-w-7xl mx-auto w-full">
-                <div class="max-w-4xl">
-                    <p class="text-xs font-sans font-bold uppercase tracking-[0.3em] text-ink/30 mb-6 section-label">Audit</p>
-                    <h1 class="text-5xl lg:text-7xl font-serif text-accent font-bold leading-tight mb-8">The Conversion<br>Architecture Audit</h1>
-                    <p class="text-xl lg:text-2xl text-ink/70 leading-relaxed max-w-2xl font-serif">Why the top 1% of brand designers convert without trying and the three sections worth auditing.</p>
-                    <p class="text-sm text-ink/40 font-sans mt-8 tracking-widest uppercase">By Ruth Machar</p>
-                    <p class="text-xs text-ink/30 font-sans mt-2 tracking-wider">Serex Studio · Where Serenity Meets Exclusivity</p>
-                </div>
-            </div>
-        </header>
-
-        <!-- INTRO -->
-        <section class="py-24 px-[5vw] bg-surface border-t border-line">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid lg:grid-cols-12 gap-16">
-                    <div class="lg:col-span-4">
-                        <h2 class="text-3xl lg:text-4xl font-serif text-accent font-bold">The Architecture</h2>
-                    </div>
-                    <div class="lg:col-span-8 space-y-8">
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans">I didn't analyze their color palettes, typography, or logo styles. I analyzed structure, language, and psychology.</p>
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans">These patterns work whether you're a luxury brand designer, a wellness creative, or a packaging specialist because they're not about looking good. They're about signaling trust.</p>
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans">What follows are the patterns I observed. The execution, the part where your unique voice meets these structures, is where strategy becomes personal.</p>
-                        <div class="grid md:grid-cols-2 gap-6 mt-8">
-                            <div class="bg-base rounded-2xl p-6 border border-line">
-                                <h4 class="text-sm font-bold uppercase tracking-widest text-accent mb-2">What This Is</h4>
-                                <p class="text-sm text-ink/60 font-sans">An audit of structure, language, and psychology across the top 1% of converting profiles.</p>
-                            </div>
-                            <div class="bg-base rounded-2xl p-6 border border-line">
-                                <h4 class="text-sm font-bold uppercase tracking-widest text-accent mb-2">What This Isn't</h4>
-                                <p class="text-sm text-ink/60 font-sans">A template. A formula that replaces your voice. A shortcut around knowing yourself.</p>
-                            </div>
-                        </div>
-                        <div class="bg-accent/10 rounded-2xl p-6 border border-accent/20">
-                            <h4 class="text-sm font-bold uppercase tracking-widest text-accent mb-2">Where It Applies</h4>
-                            <p class="text-sm text-ink/60 font-sans">Headline, About, and Featured, the three sections doing the most silent work.</p>
-                        </div>
-                        <p class="text-2xl font-serif text-accent font-bold mt-4">Let's go.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 01 — HEADLINE -->
-        <section class="py-24 px-[5vw] bg-base border-t border-line">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid lg:grid-cols-12 gap-16">
-                    <div class="lg:col-span-4">
-                        <span class="text-xs font-sans font-bold uppercase tracking-[0.3em] text-ink/30">01 Section One</span>
-                        <h2 class="text-4xl lg:text-5xl font-serif text-accent font-bold mt-4">The Headline</h2>
-                    </div>
-                    <div class="lg:col-span-8 space-y-8">
-                        <div class="stat-highlight bg-surface rounded-2xl p-8 border border-accent/30 text-center" style="transition: all 0.4s ease;">
-                            <span class="text-6xl font-serif text-accent font-bold">40x</span>
-                            <p class="text-sm text-ink/60 font-sans mt-2 max-w-xl mx-auto">LinkedIn profiles with specific, results oriented headlines receive 40x more opportunities than those with generic job titles. Not 40% more, 40 times more.</p>
-                        </div>
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans">LinkedIn is a search engine. When a potential client types "help with my brand" into the search bar, it scans your headline first. If all it finds is "Brand Designer | Logo & Identity," you're invisible.</p>
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans">The pattern I observed: the top 1% don't use their headline to state a job title, LinkedIn already knows that. They use it to state their value proposition.</p>
-                        <div class="bg-surface rounded-2xl p-8 border border-line">
-                            <h4 class="text-sm font-bold uppercase tracking-widest text-accent mb-4">The Formula</h4>
-                            <p class="text-xl font-serif text-ink font-bold">"I help [specific audience] achieve [specific outcome] without [specific pain]"</p>
-                        </div>
-                        <div class="bg-surface rounded-2xl p-8 border border-line">
-                            <h4 class="text-sm font-bold uppercase tracking-widest text-accent mb-4">Real Examples From the Audit</h4>
-                            <ul class="space-y-3 text-ink/60 font-sans">
-                                <li class="pl-4 border-l-2 border-accent">"Helping wellness founders attract high value clients without burning out"</li>
-                                <li class="pl-4 border-l-2 border-accent">"Brand identity for beauty and food startups that need to stand out"</li>
-                                <li class="pl-4 border-l-2 border-accent">"For founders who want their brand to feel as premium as their product"</li>
-                            </ul>
-                        </div>
-                        <div class="bg-accent/10 rounded-2xl p-8 border border-accent/20">
-                            <h4 class="text-sm font-bold uppercase tracking-widest text-accent mb-4">Why This Works</h4>
-                            <p class="text-ink/60 leading-relaxed font-sans">Generic headlines are forgettable. Specific headlines are searchable. When you name your audience and outcome, you're not just describing yourself, you're qualifying your ideal client. They read it and think: "That's exactly what I need."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 02 — ABOUT -->
-        <section class="py-24 px-[5vw] bg-surface border-t border-line">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid lg:grid-cols-12 gap-16">
-                    <div class="lg:col-span-4">
-                        <span class="text-xs font-sans font-bold uppercase tracking-[0.3em] text-ink/30">02 Section Two</span>
-                        <h2 class="text-4xl lg:text-5xl font-serif text-accent font-bold mt-4">The About Section</h2>
-                    </div>
-                    <div class="lg:col-span-8 space-y-8">
-                        <p class="text-xl text-ink/70 leading-relaxed font-sans">The Authenticity Trap.</p>
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans">There's a common belief that being "authentic" means being casual, behind the scenes, and unfiltered. But research into 1,011 executive LinkedIn posts revealed something counterintuitive: surface level authenticity, casual tone, unpolished photos, doesn't drive trust on its own. What drives trust is credibility signals.</p>
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans">The pattern I observed: the top 1% don't open their About section with a resume. They open with a belief statement.</p>
-                        <div class="bg-base rounded-2xl p-8 border border-line">
-                            <h4 class="text-sm font-bold uppercase tracking-widest text-accent mb-4">Belief Statements From the Audit</h4>
-                            <ul class="space-y-4 text-ink/60 font-sans">
-                                <li class="pl-4 border-l-2 border-accent">"Brands don't grow because they're perfectly constructed. They grow because people can feel the person behind them."</li>
-                                <li class="pl-4 border-l-2 border-accent">"Strategy gives a brand direction. Soul gives it connection."</li>
-                                <li class="pl-4 border-l-2 border-accent">"Your product is premium. Your brand should feel that way too."</li>
-                            </ul>
-                        </div>
-                        <div class="bg-surface rounded-2xl p-8 border border-line">
-                            <h4 class="text-sm font-bold uppercase tracking-widest text-accent mb-4">The 3 Second Rule</h4>
-                            <p class="text-ink/60 leading-relaxed font-sans">On mobile, only the first 2 to 3 lines of your About section are visible before the reader taps "see more." The top 1% use those lines to state their philosophy, not their credentials.</p>
-                        </div>
-                        <div class="bg-accent/10 rounded-2xl p-8 border border-accent/20">
-                            <h4 class="text-sm font-bold uppercase tracking-widest text-accent mb-4">Why This Works</h4>
-                            <p class="text-ink/60 leading-relaxed font-sans">A belief signals point of view, and point of view signals expertise. When you state a belief, you're not just informing the reader, you're filtering them. The people who agree are your people. The people who disagree were never going to hire you anyway.</p>
-                        </div>
-                        <div class="bg-surface rounded-2xl p-8 border border-line">
-                            <h4 class="text-sm font-bold uppercase tracking-widest text-ink/30 mb-4">Here's What I've Noticed</h4>
-                            <p class="text-ink/60 leading-relaxed font-sans italic">A belief statement only works if it's actually your belief, not a borrowed one. The designers I work with take 2 to 3 rounds to land theirs. Not because they don't know themselves, but because articulating it in a way that lands takes extraction. And extraction benefits from a second pair of eyes.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 03 — FEATURED -->
-        <section class="py-24 px-[5vw] bg-base border-t border-line">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid lg:grid-cols-12 gap-16">
-                    <div class="lg:col-span-4">
-                        <span class="text-xs font-sans font-bold uppercase tracking-[0.3em] text-ink/30">03 Section Three</span>
-                        <h2 class="text-4xl lg:text-5xl font-serif text-accent font-bold mt-4">The Featured Section</h2>
-                    </div>
-                    <div class="lg:col-span-8 space-y-8">
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans">The Featured section is the most underutilized real estate on LinkedIn. Most designers treat it like a portfolio, pinning their most visually impressive project and calling it a day. The top 1% treat it like a storefront.</p>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="bg-surface rounded-2xl p-8 border border-line">
-                                <h4 class="text-sm font-bold uppercase tracking-widest text-ink/40 mb-2">Most Profiles</h4>
-                                <p class="text-ink/60 font-sans">A portfolio. It shows what you've made.</p>
-                            </div>
-                            <div class="bg-surface rounded-2xl p-8 border border-accent/30">
-                                <h4 class="text-sm font-bold uppercase tracking-widest text-accent mb-2">Top 1%</h4>
-                                <p class="text-ink/60 font-sans">A storefront. It shows what the visitor should do next.</p>
-                            </div>
-                        </div>
-                        <table class="audit-table" style="width:100%; border-collapse: collapse; font-family: 'Public Sans', sans-serif; background:#F4F4F4; border-radius:1rem; overflow:hidden; border:1px solid #dfd8cb;">
-                            <thead>
-                                <tr><th style="text-align:left; padding:1rem 1.5rem; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#5A554A; border-bottom:2px solid #dfd8cb; font-weight:600;">Type</th><th style="text-align:left; padding:1rem 1.5rem; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#5A554A; border-bottom:2px solid #dfd8cb; font-weight:600;">Purpose</th><th style="text-align:left; padding:1rem 1.5rem; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#5A554A; border-bottom:2px solid #dfd8cb; font-weight:600;">Example</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6; font-weight:bold; color:#84B8A8;">One Case Study</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">Proof</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">Problem to Solution to Result, with numbers</td></tr>
-                                <tr><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6; font-weight:bold; color:#84B8A8;">One Philosophy Post</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">Belief</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">Your point of view on branding</td></tr>
-                                <tr><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6; font-weight:bold; color:#84B8A8;">One Clear CTA</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">Direction</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">Newsletter, lead magnet, or booking link</td></tr>
-                            </tbody>
-                        </table>
-                        <p class="text-sm text-ink/50 font-sans leading-relaxed">Every visitor who lands on your profile is in one of two states: casual curiosity ("who is this person?") or active consideration ("could this be the person I need?"). Your Featured section has to serve both, the case study satisfies the considerer, the philosophy post builds trust with the curious browser, and the CTA gives both a next step.</p>
-                        <div class="stat-highlight bg-surface rounded-2xl p-8 border border-accent/30 text-center" style="transition: all 0.4s ease;">
-                            <span class="text-5xl font-serif text-accent font-bold">333%</span>
-                            <p class="text-sm text-ink/60 font-sans mt-2 max-w-xl mx-auto">The "Proof, People, Place" framework, combining verifiable data, third party validation, and specific context, lifts engagement by 333% over posts without it.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 04 — WHY IT MATTERS -->
-        <section class="py-24 px-[5vw] bg-surface border-t border-line">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid lg:grid-cols-12 gap-16">
-                    <div class="lg:col-span-4">
-                        <h2 class="text-4xl lg:text-5xl font-serif text-accent font-bold">Why This Matters<br>More Than Ever</h2>
-                    </div>
-                    <div class="lg:col-span-8 space-y-8">
-                        <div class="stat-highlight bg-base rounded-2xl p-8 border border-line text-center" style="transition: all 0.4s ease;">
-                            <span class="text-4xl font-serif text-accent font-bold">1.6%</span>
-                            <p class="text-sm text-ink/60 font-sans mt-2">of followers reached by the average company page post</p>
-                        </div>
-                        <p class="text-lg text-ink/60 leading-relaxed font-sans">The Visibility Math. LinkedIn's organic reach is declining for brands, but personal profiles are still winning. Your profile isn't a digital resume anymore. It's your primary marketing asset.</p>
-                        <div class="bg-accent/10 rounded-2xl p-8 border border-accent/20">
-                            <h4 class="text-sm font-bold uppercase tracking-widest text-accent mb-4">What This Means</h4>
-                            <p class="text-ink/60 leading-relaxed font-sans">The top 1% didn't get there by accident. They audited themselves. They iterated. They treated their profile as a living system, and they had someone who could see what they couldn't.</p>
-                            <p class="text-ink/50 font-sans italic mt-4">But here's what they also had: someone who could see what they couldn't.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 05 — ARCHITECTURE AT A GLANCE -->
-        <section class="py-24 px-[5vw] bg-base border-t border-line">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <p class="text-xs font-sans font-bold uppercase tracking-[0.3em] text-ink/30 mb-4 section-label">The Architecture, at a Glance</p>
-                    <h2 class="text-4xl lg:text-5xl font-serif text-accent font-bold">What a Focused Audit<br>Actually Covers</h2>
-                    <p class="text-lg text-ink/50 font-sans mt-4">The patterns are here. The application is personal.</p>
-                </div>
-                <table class="audit-table" style="width:100%; border-collapse: collapse; font-family: 'Public Sans', sans-serif; background:#F4F4F4; border-radius:1rem; overflow:hidden; border:1px solid #dfd8cb;">
-                    <thead>
-                        <tr><th style="text-align:left; padding:1rem 1.5rem; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#5A554A; border-bottom:2px solid #dfd8cb; font-weight:600;">Section</th><th style="text-align:left; padding:1rem 1.5rem; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:#5A554A; border-bottom:2px solid #dfd8cb; font-weight:600;">What Gets Examined</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6; font-weight:bold; color:#84B8A8;">Headline</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">Does it filter for your people? Does it sound like you?</td></tr>
-                        <tr><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6; font-weight:bold; color:#84B8A8;">About</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">Does the first line stop a scroller? Is the belief actually yours?</td></tr>
-                        <tr><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6; font-weight:bold; color:#84B8A8;">Featured</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">Does it serve both curiosity and consideration?</td></tr>
-                        <tr><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6; font-weight:bold; color:#84B8A8;">Voice</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">Does every section feel like the same person wrote it?</td></tr>
-                        <tr><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6; font-weight:bold; color:#84B8A8;">Gaps</td><td style="padding:1rem 1.5rem; border-bottom:1px solid #dfd8cb; color:#5A554A; font-size:0.95rem; line-height:1.6;">What's missing that your ideal client is looking for?</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- SHARED BY -->
-        <section class="py-16 px-[5vw] bg-surface border-t border-line">
-            <div class="max-w-7xl mx-auto text-center">
-                <p class="text-sm text-ink/40 font-sans tracking-widest uppercase">Shared by Ruth Machar</p>
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="py-24 px-[5vw] bg-base border-t border-line">
-            <div class="max-w-7xl mx-auto text-center">
-                <h2 class="text-4xl lg:text-5xl font-serif text-accent font-bold mb-6">Ready to See What You're Not Seeing?</h2>
-                <p class="text-lg text-ink/60 max-w-2xl mx-auto font-sans mb-6">I audit and optimize LinkedIn profiles for wellness and lifestyle creatives, not to fix it for you, but to show you what's already there and what isn't yet.</p>
-                <div class="bg-surface rounded-2xl p-8 border border-line max-w-md mx-auto mb-10">
-                    <p class="text-2xl font-serif text-ink font-bold">One Profile · $150 · One Week</p>
-                </div>
-                <a href="#contact" class="btn-primary">Start A Conversation</a>
-            </div>
-        </section>
-
-        <!-- FOOTER (repeated) -->
-        <footer class="py-20 px-[5vw] border-t border-line bg-ink">
-            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-12 font-sans">
-                <div class="space-y-4">
-                    <p class="text-2xl font-serif tracking-tight text-surface">SEREX <span class="text-sm font-serif">&copy; Studio</span></p>
-                    <p class="text-sm text-surface/50">Wellness Brand Strategy · Brand Messaging · Copywriting · Content Strategy · Email Marketing</p>
-                </div>
-                <div class="flex flex-wrap gap-12">
-                    <div class="space-y-4">
-                        <p class="text-xs font-bold uppercase tracking-widest text-surface/40">Navigation</p>
-                        <ul class="space-y-2 text-sm text-surface/70">
-                            <li><a href="#work" class="link-underline hover:text-surface">Work</a></li>
-                            <li><a href="#ways" class="link-underline hover:text-surface">Ways to Work With Me</a></li>
-                            <li><a href="#meet" class="link-underline hover:text-surface">Meet Ruth</a></li>
-                            <li><a href="#contact" class="link-underline hover:text-surface">Let's Talk</a></li>
-                        </ul>
-                    </div>
-                    <div class="space-y-4">
-                        <p class="text-xs font-bold uppercase tracking-widest text-surface/40">Connect</p>
-                        <ul class="space-y-2 text-sm text-surface/70">
-                            <li><a href="https://linkedin.com/in/ruthmachar" target="_blank" class="link-underline hover:text-surface">LinkedIn</a></li>
-                            <li><a href="https://wa.me/254118218091" target="_blank" class="link-underline hover:text-surface">WhatsApp</a></li>
-                            <li><a href="mailto:serexbranding@gmail.com" class="link-underline hover:text-surface">Email</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="text-right">
-                    <p class="text-xs text-surface/40">© 2026 SEREX. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-
-    <!-- ========== PAGE 5: BRAND VOICE QUESTIONNAIRE ========== -->
-    
-    <div id="questionnaire" class="bg-base">
-        <div class="progress-bar" id="q-progressBar"></div>
-
-        <!-- Q-HERO -->
-        <div class="q-hero">
-            <div class="q-hero-inner">
-                <div class="q-tag">Serex Studio</div>
-                <h1>5 Minutes<br><em>for Clarity.</em></h1>
-                <p class="q-hero-sub">The Brand Voice Website Questionnaire — Serex Studio</p>
-                <p class="q-hero-note">
-                    Your brand has evolved. Your website may not have caught up yet.<br><br>
-                    Most founders feel it before they can name it — the words on the homepage used to sound right, but something feels slightly off. Not wrong enough to justify a full rebrand, but present enough to notice.<br><br>
-                    This questionnaire was built for exactly that moment. Four dimensions. One honest look at whether your website is still speaking the language of the brand you have actually become.<br><br>
-                    <strong>Five minutes. Four dimensions. One honest look.</strong>
-                </p>
-                <div class="q-scroll-hint" onclick="document.querySelector('.q-scale-bar').scrollIntoView({behavior:'smooth'})">
-                    <div class="arrow">↓</div>
-                    Begin the questionnaire
-                </div>
-            </div>
-        </div>
-
-        <!-- Q-SCALE -->
-        <div class="q-scale-bar">
-            <span class="q-scale-label">Your scale</span>
-            <div class="q-scale-items">
-                <div class="q-scale-item"><strong>1</strong>Not at all</div>
-                <div class="q-scale-item"><strong>2</strong>Rarely</div>
-                <div class="q-scale-item"><strong>3</strong>Sometimes</div>
-                <div class="q-scale-item"><strong>4</strong>Most of the time</div>
-                <div class="q-scale-item"><strong>5</strong>Always</div>
-            </div>
-        </div>
-
-        <!-- Q-SECTION 1 -->
-        <div class="q-section">
-            <div class="q-section-header">
-                <div class="q-section-num">Section 01 of 04</div>
-                <div class="q-section-title">Human Voice</div>
-                <div class="q-section-desc">Does your website sound like a real person — or like a polished template someone filled in?</div>
-            </div>
-            <div class="q-question" data-section="1" data-q="1">
-                <div class="q-question-num">Question 01</div>
-                <div class="q-question-text">When you read your website copy out loud, does it sound like you having a genuine conversation with your ideal client — or does it sound like it was written for a brochure?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,1,1,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,1,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,1,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,1,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,1,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="1" data-q="2">
-                <div class="q-question-num">Question 02</div>
-                <div class="q-question-text">Can a stranger read your website and get a real sense of who you are as a person — your values, your perspective, your way of seeing the world?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,1,2,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,2,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,2,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,2,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,2,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="1" data-q="3">
-                <div class="q-question-num">Question 03</div>
-                <div class="q-question-text">Does your website use language your clients actually use when they describe their own pain points — or does it default to industry terminology and professional distance?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,1,3,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,3,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,3,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,3,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,3,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="1" data-q="4">
-                <div class="q-question-num">Question 04</div>
-                <div class="q-question-text">If you removed your logo and brand name from your website, would your copy still be recognisably yours — or could it belong to any wellness brand in your space?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,1,4,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,4,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,4,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,4,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,4,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="1" data-q="5">
-                <div class="q-question-num">Question 05</div>
-                <div class="q-question-text">Does your website acknowledge the emotional reality of what your clients are going through before it talks about your solution?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,1,5,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,5,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,5,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,5,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,1,5,5)">5</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="q-section-total">
-            <span class="q-total-label">Section 01 — Human Voice</span>
-            <span class="q-total-score" id="q-total-1">— / 25</span>
-        </div>
-
-        <div class="q-section-divider" style="margin-top:0;"></div>
-
-        <!-- Q-SECTION 2 -->
-        <div class="q-section">
-            <div class="q-section-header">
-                <div class="q-section-num">Section 02 of 04</div>
-                <div class="q-section-title">AI Resistance</div>
-                <div class="q-section-desc">Does your copy feel genuinely crafted — or could it have been generated in seconds?</div>
-            </div>
-            <div class="q-question" data-section="2" data-q="1">
-                <div class="q-question-num">Question 06</div>
-                <div class="q-question-text">Does your website copy feel distinctly yours — with your specific perspective, personality and imperfections intact rather than smoothed into something generic?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,2,1,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,1,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,1,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,1,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,1,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="2" data-q="2">
-                <div class="q-question-num">Question 07</div>
-                <div class="q-question-text">Does your website avoid generic wellness phrases — like "holistic approach," "transformative journey," or "empower you to thrive" — that could appear on dozens of other brands' websites?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,2,2,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,2,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,2,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,2,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,2,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="2" data-q="3">
-                <div class="q-question-num">Question 08</div>
-                <div class="q-question-text">Does your copy feel meaningfully different from your competitors — in structure, language and the specific way you express your point of view?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,2,3,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,3,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,3,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,3,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,3,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="2" data-q="4">
-                <div class="q-question-num">Question 09</div>
-                <div class="q-question-text">If you read your website out loud, does it have a rhythm and cadence that feels natural — or does it sound like it was written to be read silently, not spoken?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,2,4,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,4,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,4,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,4,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,4,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="2" data-q="5">
-                <div class="q-question-num">Question 10</div>
-                <div class="q-question-text">Do you ever re-read your website copy and feel like it's missing something — not factually, but in the way it makes you feel?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,2,5,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,5,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,5,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,5,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,2,5,5)">5</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="q-section-total">
-            <span class="q-total-label">Section 02 — AI Resistance</span>
-            <span class="q-total-score" id="q-total-2">— / 25</span>
-        </div>
-
-        <div class="q-section-divider" style="margin-top:0;"></div>
-
-        <!-- Q-SECTION 3 -->
-        <div class="q-section">
-            <div class="q-section-header">
-                <div class="q-section-num">Section 03 of 04</div>
-                <div class="q-section-title">Emotional Accuracy</div>
-                <div class="q-section-desc">Does your copy meet your clients where they actually are?</div>
-            </div>
-            <div class="q-question" data-section="3" data-q="1">
-                <div class="q-question-num">Question 11</div>
-                <div class="q-question-text">Does your website clearly articulate the specific emotional and psychological state your ideal client is in when they first encounter your brand?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,3,1,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,1,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,1,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,1,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,1,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="3" data-q="2">
-                <div class="q-question-num">Question 12</div>
-                <div class="q-question-text">Does your copy show that you understand not just the problem your client has, but how it actually feels to have that problem?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,3,2,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,2,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,2,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,2,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,2,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="3" data-q="3">
-                <div class="q-question-num">Question 13</div>
-                <div class="q-question-text">Does the emotional tone of your website shift appropriately for where someone is in their journey — or does it use the same energy for someone discovering you as for someone ready to buy?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,3,3,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,3,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,3,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,3,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,3,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="3" data-q="4">
-                <div class="q-question-num">Question 14</div>
-                <div class="q-question-text">Do you include emotional detail in your copy — not just facts and features, but the texture of what it feels like to work with you or use your products?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,3,4,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,4,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,4,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,4,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,4,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="3" data-q="5">
-                <div class="q-question-num">Question 15</div>
-                <div class="q-question-text">When someone finishes reading your website, do they feel understood — or just informed?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,3,5,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,5,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,5,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,5,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,3,5,5)">5</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="q-section-total">
-            <span class="q-total-label">Section 03 — Emotional Accuracy</span>
-            <span class="q-total-score" id="q-total-3">— / 25</span>
-        </div>
-
-        <div class="q-section-divider" style="margin-top:0;"></div>
-
-        <!-- Q-SECTION 4 -->
-        <div class="q-section">
-            <div class="q-section-header">
-                <div class="q-section-num">Section 04 of 04</div>
-                <div class="q-section-title">Clarity &amp; Conversion</div>
-                <div class="q-section-desc">Does your website actually guide someone toward the next step?</div>
-            </div>
-            <div class="q-question" data-section="4" data-q="1">
-                <div class="q-question-num">Question 16</div>
-                <div class="q-question-text">Does your website make it immediately clear who you are, what you do and who you're for — without requiring someone to search for it?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,4,1,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,1,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,1,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,1,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,1,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="4" data-q="2">
-                <div class="q-question-num">Question 17</div>
-                <div class="q-question-text">Does your website have a clear and meaningful next step for every visitor — not just "contact us," but something aligned with where they are in their journey?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,4,2,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,2,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,2,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,2,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,2,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="4" data-q="3">
-                <div class="q-question-num">Question 18</div>
-                <div class="q-question-text">Would someone who lands on your website know within 5 seconds whether they're in the right place or not?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,4,3,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,3,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,3,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,3,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,3,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="4" data-q="4">
-                <div class="q-question-num">Question 19</div>
-                <div class="q-question-text">Does your website show the value of what you offer in a way that's concrete, not abstract — using real examples or outcomes rather than just adjectives?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,4,4,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,4,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,4,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,4,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,4,5)">5</button>
-                </div>
-            </div>
-            <div class="q-question" data-section="4" data-q="5">
-                <div class="q-question-num">Question 20</div>
-                <div class="q-question-text">Does your website feel complete and self-contained — or does it leave you feeling like something important is missing?</div>
-                <div class="q-rating">
-                    <button class="q-rating-btn" onclick="rate(this,4,5,1)">1</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,5,2)">2</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,5,3)">3</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,5,4)">4</button>
-                    <button class="q-rating-btn" onclick="rate(this,4,5,5)">5</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="q-section-total">
-            <span class="q-total-label">Section 04 — Clarity &amp; Conversion</span>
-            <span class="q-total-score" id="q-total-4">— / 25</span>
-        </div>
-
-        <!-- Q-SUBMIT -->
-        <div class="q-submit-wrap" id="q-submit-wrap">
-            <button class="q-submit-btn" onclick="calculateResults()">See Your Results</button>
-            <p class="q-submit-note">Your answers are not stored anywhere. This is for your eyes only.</p>
-        </div>
-
-        <!-- Q-RESULTS -->
-        <div class="q-results" id="q-results">
-            <h2 class="q-results-title">Your Brand Voice Score</h2>
-            <div class="q-score-card"><span class="q-score-card-label">Human Voice</span><span class="q-score-card-num" id="q-result-1">— / 25</span></div>
-            <div class="q-score-card"><span class="q-score-card-label">AI Resistance</span><span class="q-score-card-num" id="q-result-2">— / 25</span></div>
-            <div class="q-score-card"><span class="q-score-card-label">Emotional Accuracy</span><span class="q-score-card-num" id="q-result-3">— / 25</span></div>
-            <div class="q-score-card"><span class="q-score-card-label">Clarity &amp; Conversion</span><span class="q-score-card-num" id="q-result-4">— / 25</span></div>
-            <div class="q-total-card"><span class="q-total-card-label">Total Score</span><span class="q-total-card-num" id="q-result-total">— / 100</span></div>
-            <div class="q-meaning-box"><div class="q-meaning-title">What This Means</div><div class="q-meaning-text" id="q-meaning-text">Complete the questionnaire to see your results.</div></div>
-            <div class="q-next-steps">
-                <div class="q-next-steps-title">Next Steps</div>
-                <div class="q-step"><span class="q-step-num">1</span><div class="q-step-text"><strong>Keep what's working.</strong> Identify the dimensions where you scored highest — those are your strengths.</div></div>
-                <div class="q-step"><span class="q-step-num">2</span><div class="q-step-text"><strong>Address the gaps.</strong> The lowest scores show you exactly where your website is falling short of the brand you've become.</div></div>
-                <div class="q-step"><span class="q-step-num">3</span><div class="q-step-text"><strong>Talk to Ruth.</strong> Book a conversation to discuss how to bring your website back into alignment with who you are now.</div></div>
-            </div>
-            <div class="q-copy-section">
-                <div class="q-copy-title">Share Your Results</div>
-                <div class="q-copy-subtitle">Copy your scores to share with a trusted advisor or keep for your records.</div>
-                <button class="q-copy-btn" onclick="copyScores()">Copy Scores to Clipboard</button>
-                <div class="q-copy-result" id="q-copy-result"></div>
-            </div>
-        </div>
-
-        <!-- Q-FOOTER -->
-        <div class="q-footer">
-            <p>Serex Studio · <span>5 Minutes for Clarity</span></p>
-        </div>
-    </div>
-
-    <script>
-        // ========== QUESTIONNAIRE JAVASCRIPT ==========
-        const qResponses = {};
-
-        function rate(btn, section, question, value) {
-            const parent = btn.closest('.q-question');
-            const buttons = parent.querySelectorAll('.q-rating-btn');
-            buttons.forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
-            const key = `${section}-${question}`;
-            qResponses[key] = value;
-            updateQSectionTotal(section);
-        }
-
-        function updateQSectionTotal(section) {
-            const sectionKeys = Object.keys(qResponses).filter(k => k.startsWith(`${section}-`));
-            let total = 0;
-            let count = 0;
-            sectionKeys.forEach(key => {
-                if (qResponses[key]) {
-                    total += qResponses[key];
-                    count++;
-                }
-            });
-            const totalEl = document.getElementById(`q-total-${section}`);
-            if (totalEl) {
-                totalEl.textContent = `${total} / 25`;
-            }
-        }
-
-        function calculateResults() {
-            const totalQuestions = 20;
-            const answered = Object.keys(qResponses).length;
-            if (answered < totalQuestions) {
-                alert(`Please answer all ${totalQuestions} questions before seeing your results. You've answered ${answered}.`);
-                return;
-            }
-            let sectionTotals = {1: 0, 2: 0, 3: 0, 4: 0};
-            for (let section = 1; section <= 4; section++) {
-                let total = 0;
-                for (let q = 1; q <= 5; q++) {
-                    const key = `${section}-${q}`;
-                    total += qResponses[key] || 0;
-                }
-                sectionTotals[section] = total;
-                document.getElementById(`q-result-${section}`).textContent = `${total} / 25`;
-            }
-            const grandTotal = Object.values(sectionTotals).reduce((a, b) => a + b, 0);
-            document.getElementById('q-result-total').textContent = `${grandTotal} / 100`;
-
-            let meaning = '';
-            if (grandTotal >= 80) {
-                meaning = 'Your website is already speaking the language of the brand you\'ve become. The strategy is working — you\'re just fine-tuning now.';
-            } else if (grandTotal >= 60) {
-                meaning = 'Your website is doing some things well and others less well. There\'s a gap between who you are and what your site says — and that gap is costing you connection.';
-            } else if (grandTotal >= 40) {
-                meaning = 'Your website is not quite aligned with the brand you\'ve become. The words are still doing a different job from the one you need them to do.';
-            } else {
-                meaning = 'Your website is speaking a version of your brand that no longer exists. The good news? This is fixable — and you already know something needs to change.';
-            }
-            document.getElementById('q-meaning-text').textContent = meaning;
-
-            document.getElementById('q-results').classList.add('visible');
-            document.getElementById('q-submit-wrap').style.display = 'none';
-            document.getElementById('q-results').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function copyScores() {
-            const scores = [];
-            const labels = ['Human Voice', 'AI Resistance', 'Emotional Accuracy', 'Clarity & Conversion'];
-            for (let section = 1; section <= 4; section++) {
-                const el = document.getElementById(`q-result-${section}`);
-                scores.push(`${labels[section-1]}: ${el.textContent}`);
-            }
-            const total = document.getElementById('q-result-total').textContent;
-            scores.push(`Total: ${total}`);
-            const text = `Brand Voice Questionnaire Results\n\n${scores.join('\n')}\n\nSerex Studio — 5 Minutes for Clarity`;
-            navigator.clipboard.writeText(text).then(() => {
-                document.getElementById('q-copy-result').textContent = '✓ Copied to clipboard!';
-                setTimeout(() => { document.getElementById('q-copy-result').textContent = ''; }, 3000);
-            }).catch(() => {
-                const textarea = document.createElement('textarea');
-                textarea.value = text;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                document.getElementById('q-copy-result').textContent = '✓ Copied to clipboard!';
-                setTimeout(() => { document.getElementById('q-copy-result').textContent = ''; }, 3000);
-            });
-        }
-
-        // Intersection Observer to reveal questions
-        document.addEventListener('DOMContentLoaded', function() {
-            const questions = document.querySelectorAll('.q-question');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.2 });
-            questions.forEach(q => observer.observe(q));
-
-            // Progress bar
-            window.addEventListener('scroll', function() {
-                const scrollTop = window.scrollY;
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const progress = (scrollTop / docHeight) * 100;
-                const bar = document.getElementById('q-progressBar');
-                if (bar) bar.style.width = progress + '%';
-            });
-        });
-    </script>
 
 </body>
 </html>
